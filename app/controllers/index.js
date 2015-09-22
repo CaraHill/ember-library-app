@@ -4,6 +4,11 @@ export default Ember.Controller.extend({
 
   headerMessage: 'Coming Soon',
   emailAddress: '',
-  isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/)
+  isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/),
+  actions: {
+    sendInvitation: function() {
+      console.log("sent!")
+    }
+  }
 
 });
