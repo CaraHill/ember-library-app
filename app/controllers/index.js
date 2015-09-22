@@ -7,9 +7,8 @@ export default Ember.Controller.extend({
   isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/),
   actions: {
     sendInvitation: function() {
-      alert("Invitation will be sent to this address: " + this.get('emailAddress'))
+      this.set('responseMessage', 'Thank you! An email was sent to ' + this.get('emailAddress'))
       this.set('emailAddress', '')
-      this.set('responseMessage', 'Thank you!')
     }
   }
 
