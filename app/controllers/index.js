@@ -10,6 +10,11 @@ export default Ember.Controller.extend({
   }.property('emailAddress'),
   emailAddressChanged: function() {
     console.log('observer is called', this.get('emailAddress'))
+    if (this.get('emailAddress') == '') {
+      this.set('isDisabled', true)
+    } else {
+      this.set('isDisabled', false)
+    }
   }.observes('emailAddress')
 
 });
