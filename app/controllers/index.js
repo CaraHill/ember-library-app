@@ -5,8 +5,9 @@ export default Ember.Controller.extend({
   isDisabled: true,
   headerMessage: 'Coming Soon',
   emailAddress: '',
-  actualEmailAddress: function() {
+  kiwiEmailAddress: function() {
     console.log('actualEmailAddress is called', this.get('emailAddress'))
+    return this.get('emailAddress') + '.nz'
   }.property('emailAddress'),
   emailAddressChanged: function() {
     console.log('observer is called', this.get('emailAddress'))
