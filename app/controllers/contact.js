@@ -6,7 +6,6 @@ export default Ember.Controller.extend({
   isEmailValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/),
   isMessageEmpty: Ember.computed.empty('message'),
   formValid: Ember.computed('isEmailValid', 'isMessageEmpty', function() {
-    console.log(this.get('isEmailValid') && !this.get('isMessageEmpty'))
     return this.get('isEmailValid') && !this.get('isMessageEmpty')
   }),
   actions: {
