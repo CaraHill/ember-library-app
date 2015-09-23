@@ -9,7 +9,7 @@
   <div class="form-group">
     <textarea class="form-control" id="exampleInputPassword1" placeholder="Type your message here"></textarea>
   </div>
-  <button type="submit" class="btn btn-default" disabled="{{unless isValid 'disabled'}}">Send Message</button>
+  <button type="submit" class="btn btn-default" disabled="{{unless formValid 'disabled'}}">Send Message</button>
 </form>
 
 {{outlet}}
