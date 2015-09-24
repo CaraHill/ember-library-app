@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
     sendInvitation: function() {
       var newEmail = this.get('emailAddress');
       var newInvitation = this.store.createRecord('invitation', {email: newEmail});
-
+      newInvitation.save();
       this.set('responseMessage', 'Thank you! An email was sent to ' + this.get('emailAddress'));
       this.set('emailAddress', '');
     }
