@@ -8,9 +8,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th>12341234</th>
-      <th>asdaf@gmail.com</th>
-    </tr>
+    {{#each model as |invitation|}}
+      <tr>
+        <th>{{invitation.id}}</th>
+        <th>{{invitation.email}}</th>
+      </tr>
+    {{/each}}
   </tbody>
 </table>
