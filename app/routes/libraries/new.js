@@ -7,7 +7,11 @@ export default Ember.Route.extend({
   },
   actions: {
     createLibrary: function(newLibrary) {
-      newLibrary.save();
+      var that = this;
+
+      newLibrary.save().then(function(response) {
+        that.transitionTo('libraries');
+      });
     }
   }
 });
