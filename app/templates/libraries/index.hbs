@@ -1,1 +1,22 @@
-<h2> This is the list page </h2>
+<h1>Libraries</h1>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |library|}}
+      <tr>
+        <th>{{library.id}}</th>
+        <th>{{library.name}}</th>
+        <th>{{library.address}}</th>
+        <th>{{library.phone}}</th>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
