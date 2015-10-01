@@ -1,0 +1,8 @@
+{
+  "firebase": "library-app-cara",
+  "public": "dist",
+  "rewrites": [{
+    "source": "**",
+    "destination": "/index.html"
+  }]
+}
