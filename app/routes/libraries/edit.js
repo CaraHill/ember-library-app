@@ -14,6 +14,20 @@ export default Ember.Route.extend({
       library.save().then(function() {
         that.transitionTo('libraries');
       })
+    },
+
+    willTransition: function(transition) {
+
+      var model = this.controller.get('model');
+
+      if (model.get('hasDirtyAttributes')) {
+        var confirmation = confirm("Your changed were not saved. Are you sure you want to leave this page?");
+        if (confirmation) {
+          model.rollbackAttributes();
+        } else {
+          transition.abort();
+        }
+      }
     }
   }
 
