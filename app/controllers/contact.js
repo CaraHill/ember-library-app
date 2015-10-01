@@ -22,6 +22,14 @@ export default Ember.Controller.extend({
         this.set('emailAddress', '');
         this.set('message', '');
       });
+    },
+
+    willTransition: function() {
+      var contact = this.get('model');
+
+      if (contact.get('isNew')) {
+        contact.destroyRecord();
+      }
     }
   }
 });
