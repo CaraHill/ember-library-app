@@ -4,5 +4,15 @@ export default Ember.Route.extend({
 
   model: function() {
     return this.store.findAll('contact');
+  },
+
+  actions: {
+    deleteContact: function(contact) {
+      var confirmation = confirm('Are you sure you want to delete this contact?');
+
+      if (confirmation) {
+        contact.destroyRecord();
+      }
+    }
   }
 });
