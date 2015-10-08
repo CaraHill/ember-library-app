@@ -6,6 +6,10 @@ export default Ember.Route.extend({
     return this.store.findRecord('library', params.library_id)
   },
 
+  renderTemplate(controller, model) {
+    this.render('libraries/form')
+  },
+
   actions: {
 
     editLibrary: function(library) {
