@@ -7,6 +7,10 @@ export default Ember.Route.extend({
   },
 
   renderTemplate(controller, model) {
+    controller.set('title', 'Edit Library');
+    controller.set('buttonLabel', 'Save changes');
+    controller.set('modelAction', 'editLibrary');
+
     this.render('libraries/form')
   },
 
