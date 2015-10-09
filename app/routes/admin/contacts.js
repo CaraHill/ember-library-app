@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
-  //Homework: add a check box to the contacts which saves to the contact model (add a new field) if you have read/responded to the contact enquiry.
+  //Homework: add a check box to the contacts which saves to the contact model (add a new field) if you have read/responded to the contact enquiry. Ember checkbox class.
 
   model: function() {
     return this.store.findAll('contact');
