@@ -19,3 +19,15 @@ html {
 .btn-danger {
   margin-top: 10px;
 }
+
+.label-fade {
+  opacity: 0;
+  @include transition(all 0.5s);
+  &.label-snow {
+    opacity: 1;
+  }
+}
+
+.vertical-align-middle {
+  vertical-align: middle!important;
+}
