@@ -2,17 +2,24 @@
 
 <div class="row">
 
-  {{#each model as |library|}}
-    <div class="col-md-4">
+    <div class="col-md-12">
+      <div class="form-group">
 
-      {{#library-item item=library}}
+        {{input value=filter class="form-control input-lg" placeholder="filter by library name"}}
 
-        {{#link-to 'libraries.edit' library.id class="btn btn-xs btn-success"}}Edit{{/link-to}}
-          <button class="btn btn-xs btn-danger" {{action 'deleteLibrary' library}}>Delete</button>
-
-      {{/library-item}}
+      </div>
 
     </div>
-  {{/each}}
 
+</div>
+
+<div class="row">
+  {{#each filteredList as |library|}}
+    <div class="col-md-4">
+      {{#library-item item=library badge=library.books.length}}
+        {{#link-to 'libraries.edit' library.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
+        <button class="btn btn-danger btn-xs" {{action 'deleteLibrary' library}}>Delete</button>
+      {{/library-item}}
+    </div>
+  {{/each}}
 </div>
