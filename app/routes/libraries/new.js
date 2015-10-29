@@ -14,7 +14,7 @@ export default Ember.Route.extend({
     controller.set('modelAction', 'createLibrary');
   },
 
-  renderTemplate(controller, model) {
+  renderTemplate() {
     this.render('libraries/form')
   },
 
@@ -22,12 +22,12 @@ export default Ember.Route.extend({
     createLibrary: function(newLibrary) {
       var that = this;
 
-      newLibrary.save().then(function(response) {
+      newLibrary.save().then(function() {
         that.transitionTo('libraries');
       });
     },
 
-    willTransition: function(transition) {
+    willTransition: function() {
      var model = this.controller.get('model');
      if (model.get('isNew')) {
        model.destroyRecord();
