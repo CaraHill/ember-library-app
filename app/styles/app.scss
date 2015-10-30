@@ -10,7 +10,7 @@ html {
 }
 
 .library-item {
-  min-height: 150px;
+  min-height: 225px;
 }
 
 .contact {
@@ -28,11 +28,20 @@ html {
     opacity: 1;
   }
 }
+
 .btn-narrow {
   padding-left: 10px;
   padding-right: 10px;
 }
+
 .btn-danger {
   margin-top: 0px;
+}
 
+.panel-title {
+  min-height: 50px;
+}
+
+.panel-body {
+  min-height: 110px;
 }
