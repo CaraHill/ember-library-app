@@ -1,13 +1,15 @@
-{{#each model as |book|}}
-  <div class="panel panel-default">
-      <div class="panel-heading">
-          <h3 class="panel-title">{{book.title}}</h3>
+<div class="row">
+  {{#each model as |book|}}
+    <div class="col-md-4">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              <h3 class="panel-title">{{book.title}}</h3>
+          </div>
+          <div class="panel-body">
+            <p>Written by: {{book.author.name}}, {{book.releaseYear}}</p>
+            <p>Held at: {{book.library.name}}</p>
+          </div>
       </div>
-      <div class="panel-body">
-        <ul>
-          <li>Written by: {{book.author.name}}, {{book.releaseYear}}</li>
-          <li>Held at: {{book.library.name}}</li>
-        </ul>
-      </div>
-  </div>
-{{/each}}
+    </div>
+  {{/each}}
+</div>

@@ -1,14 +1,16 @@
-{{#each model as |author|}}
-    <div class="panel panel-default">
+<div class="row">
+  {{#each model as |author|}}
+    <div class="col-md-4 author">
+      <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">{{author.name}}</h3>
+          <h3 class="panel-title">{{author.name}}</h3>
         </div>
-        <div class="panel-body">
-          <ul><p>Books:</p>
-            {{#each author.books as |book|}}
-              <li>{{book.title}}</li>
-            {{/each}}
-          </ul>
+        <div class="panel-body author-body">
+          {{#each author.books as |book|}}
+            <p>{{book.title}}</p>
+          {{/each}}
         </div>
+      </div>
     </div>
-{{/each}}
+  {{/each}}
+</div>
