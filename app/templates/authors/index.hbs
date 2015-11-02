@@ -10,6 +10,9 @@
             <p>{{book.title}}</p>
           {{/each}}
         </div>
+        <div class="panel-footer text-right author-footer">
+          <button class="btn btn-danger btn-xs" {{action 'deleteAuthor' author}}>Delete</button>
+        </div>
       </div>
     </div>
   {{/each}}
