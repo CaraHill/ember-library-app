@@ -5,8 +5,8 @@
         </div>
         <div class="panel-body">
           <ul><p>Books:</p>
-            {{#each book in model.books}}
-              <li>{{book.name}}</li>
+            {{#each author.books as |book|}}
+              <li>{{book.title}}</li>
             {{/each}}
           </ul>
         </div>
