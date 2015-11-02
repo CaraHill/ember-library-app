@@ -3,7 +3,7 @@ import Faker from 'faker';
 
 export default DS.Model.extend({
   title: DS.attr('string'),
-  releaseYear: DS.attr('number'),
+  releaseYear: DS.attr('number', { defaultValue: '2015' }),
 
   library: DS.belongsTo('library', {inverse: 'books', async: true}),
   author: DS.belongsTo('author', {inverse: 'books', async: true}),
@@ -11,7 +11,7 @@ export default DS.Model.extend({
   randomize(author, library) {
     this.set('title', this._bookTitle());
     this.set('author', author);
-    this.set('releaseYear', this._getRandomArbitrary(1900, 2015));
+    // this.set('releaseYear', this._getRandomArbitrary(1900, 2015));
     this.set('library', library);
 
     return this;
