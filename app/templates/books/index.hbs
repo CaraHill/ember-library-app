@@ -2,13 +2,16 @@
   {{#each model as |book|}}
     <div class="col-md-4">
       <div class="panel panel-default">
-          <div class="panel-heading">
-              <h3 class="panel-title book-title">{{book.title}}</h3>
-          </div>
-          <div class="panel-body">
-            <p>Written by: {{book.author.name}}, {{book.releaseYear}}</p>
-            <p>Held at: {{book.library.name}}</p>
-          </div>
+        <div class="panel-heading">
+            <h3 class="panel-title book-title">{{book.title}}</h3>
+        </div>
+        <div class="panel-body">
+          <p>Written by: {{book.author.name}}, {{book.releaseYear}}</p>
+          <p>Held at: {{book.library.name}}</p>
+        </div>
+        <div class="panel-footer text-right book-footer">
+          <button class="btn btn-danger btn-xs" {{action 'deleteBook' book}}>Delete</button>
+        </div>
       </div>
     </div>
   {{/each}}
