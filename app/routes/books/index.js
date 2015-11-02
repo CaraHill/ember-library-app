@@ -7,7 +7,7 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    deleteBook: function() {
+    deleteBook: function(book) {
       var confirmation = confirm('Are you sure you want to delete this book?');
 
       if (confirmation) {
