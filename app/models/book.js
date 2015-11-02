@@ -1,31 +1,32 @@
 import DS from 'ember-data';
-import Faker from  'faker';
+import Faker from 'faker';
 
 export default DS.Model.extend({
-
   title: DS.attr('string'),
-  releaseYear: DS.attr('date'),
-  author: DS.belongsTo('author'),
-  library: DS.belongsTo('library'),
+  releaseYear: DS.attr('number', { defaultValue: '2015' }),
+
+  library: DS.belongsTo('library', {inverse: 'books', async: true}),
+  author: DS.belongsTo('author', {inverse: 'books', async: true}),
 
   randomize(author, library) {
     this.set('title', this._bookTitle());
     this.set('author', author);
-    this.set('releaseYear', this._randomYear());
+    // this.set('releaseYear', this._getRandomArbitrary(1900, 2015));
     this.set('library', library);
 
     return this;
   },
 
   _bookTitle() {
-    return `${Faker.commerce.productName()} Cookbook`
+    return `${Faker.commerce.productName()} Cookbook`;
   },
 
-  _randomYear() {
-    return new Date(this._getRandomArbitray(1900, 2015));
-  },
+  // _randomYear() {
+  //   return new Date(this._getRandomArbitrary(1900, 2015));
+  // },
 
-  _getRandomArbitray(min, max) {
-    return Math.random() * (max-min) + min;
+  _getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+>>>>>>> cb186284c37e8fe603c46a88f3a38c07032301d1
   }
 });

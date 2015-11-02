@@ -2,13 +2,27 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
-  model: function() {
-    return this.store.findAll('library');
+  queryParams: {
+    limit: { refreshModel: true },
+    letter: { refreshModel: true }
+  },
+
+  model(params) {
+
+    if (params.limit === 'all') {
+      return this.store.findAll('library');
+    }
+
+    return this.store.query('library', {
+      orderBy: 'name',
+      startAt: params.letter,
+      endAt: params.letter+"\uf8ff"
+    });
   },
 
   actions: {
     deleteLibrary: function(library) {
-      var confirmation = confirm('Are you sure you want to delete this library?');
+      var confirmation = confirm('Are you sure?');
 
       if (confirmation) {
         library.destroyRecord();

@@ -1,8 +1,8 @@
 import { moduleForModel, test } from 'ember-qunit';
 
-moduleForModel('library', 'Unit | Model | library', {
+moduleForModel('author', 'Unit | Model | author', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:book']
 });
 
 test('it exists', function(assert) {

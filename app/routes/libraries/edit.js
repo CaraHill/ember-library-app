@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
   model: function(params) {
-    return this.store.findRecord('library', params.library_id)
+    return this.store.findRecord('library', params.library_id);
   },
 
   setupController(controller, model) {
@@ -14,8 +14,8 @@ export default Ember.Route.extend({
     controller.set('modelAction', 'editLibrary');
   },
 
-  renderTemplate(controller, model) {
-    this.render('libraries/form')
+  renderTemplate() {
+    this.render('libraries/form');
   },
 
   actions: {
@@ -25,7 +25,7 @@ export default Ember.Route.extend({
 
       library.save().then(function() {
         that.transitionTo('libraries');
-      })
+      });
     },
 
     willTransition: function(transition) {

@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
   model: function() {
-    return this.store.createRecord('library')
+    return this.store.createRecord('library');
   },
 
   setupController(controller, model) {
@@ -14,20 +14,20 @@ export default Ember.Route.extend({
     controller.set('modelAction', 'createLibrary');
   },
 
-  renderTemplate(controller, model) {
-    this.render('libraries/form')
+  renderTemplate() {
+    this.render('libraries/form');
   },
 
   actions: {
     createLibrary: function(newLibrary) {
       var that = this;
 
-      newLibrary.save().then(function(response) {
+      newLibrary.save().then(function() {
         that.transitionTo('libraries');
       });
     },
 
-    willTransition: function(transition) {
+    willTransition: function() {
      var model = this.controller.get('model');
      if (model.get('isNew')) {
        model.destroyRecord();
