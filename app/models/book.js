@@ -10,7 +10,7 @@ export default DS.Model.extend({
   randomize(author, library) {
     this.set('title', this._bookTitle());
     this.set('author', author);
-    this.set('releaseYear', this._randomYear());
+    this.set('releaseYear', _randomYear());
     this.set('library', library);
 
     return this;
